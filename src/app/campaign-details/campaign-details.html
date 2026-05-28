@@ -1,0 +1,53 @@
+<div class="container">
+
+  <h1>Detalhes da Campanha</h1>
+
+  <div class="form">
+
+    <input
+      placeholder="Nome"
+      [ngModel]="name()"
+      (ngModelChange)="name.set($event)"
+    />
+
+    <input
+      placeholder="Classe"
+      [ngModel]="characterClass()"
+      (ngModelChange)="characterClass.set($event)"
+    />
+
+    <input
+      type="number"
+      placeholder="Nível"
+      [ngModel]="level()"
+      (ngModelChange)="level.set($event)"
+    />
+
+    <button (click)="createCharacter()">
+      Criar Personagem
+    </button>
+
+  </div>
+
+  <div class="character-list">
+
+    @for (character of characters(); track character.id) {
+
+      <div class="character-card">
+
+        <h3>{{ character.name }}</h3>
+
+        <p>Classe: {{ character.class }}</p>
+
+        <p>Nível: {{ character.level }}</p>
+
+        <button (click)="deleteCharacter(character.id)">
+          Excluir
+        </button>
+
+      </div>
+    }
+
+  </div>
+
+</div>

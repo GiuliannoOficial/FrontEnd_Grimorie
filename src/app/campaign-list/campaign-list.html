@@ -1,0 +1,44 @@
+<div class="container">
+
+  <h1>Minhas Campanhas</h1>
+
+  <div class="form">
+
+    <input
+      placeholder="Nome da campanha"
+      [ngModel]="campaignName()"
+      (ngModelChange)="campaignName.set($event)"
+    />
+
+    <textarea
+      placeholder="Descrição"
+      [ngModel]="campaignDescription()"
+      (ngModelChange)="campaignDescription.set($event)"
+    ></textarea>
+
+    <button (click)="createCampaign()">
+      Criar Campanha
+    </button>
+
+  </div>
+
+  <div class="campaign-list">
+
+    @for (campaign of campaigns(); track campaign.id) {
+
+      <div class="campaign-card">
+
+        <h3>{{ campaign.name }}</h3>
+
+        <p>{{ campaign.description }}</p>
+
+        <button (click)="openCampaign(campaign.id)">
+          Abrir
+        </button>
+
+      </div>
+    }
+
+  </div>
+
+</div>

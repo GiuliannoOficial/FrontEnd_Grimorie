@@ -1,15 +1,20 @@
 import { Routes } from '@angular/router';
 
+import { Login } from './login/login';
+import { CampaignList } from './campaign-list/campaign-list';
+import { CampaignDetails } from './campaign-details/campaign-details';
+
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    component: Login
   },
   {
-    path: 'login',
-    loadComponent: () =>
-      import('./login/login')
-        .then(m => m.Login)
+    path: 'campaigns',
+    component: CampaignList
+  },
+  {
+    path: 'campaign/:id',
+    component: CampaignDetails
   }
 ];
