@@ -1,20 +1,18 @@
 import { Routes } from '@angular/router';
 
-import { Login } from './login/login';
-import { CampaignList } from './campaign-list/campaign-list';
-import { CampaignDetails } from './campaign-details/campaign-details';
-
 export const routes: Routes = [
   {
     path: '',
-    component: Login
+    loadComponent: () =>
+      import('./home/home').then(m => m.Home)
   },
   {
-    path: 'campaigns',
-    component: CampaignList
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login').then(m => m.Login)
   },
   {
-    path: 'campaign/:id',
-    component: CampaignDetails
+    path: '**',
+    redirectTo: ''
   }
 ];

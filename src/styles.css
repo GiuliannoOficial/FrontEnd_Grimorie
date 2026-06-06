@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:wght@400;500&display=swap');
+
+:root {
+  --font-title: 'Cinzel', serif;
+  --font-body: 'EB Garamond', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #f5f5dc;
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+}

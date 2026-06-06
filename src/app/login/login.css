@@ -1,123 +1,175 @@
-body {
-  margin: 0;
-}
-
 .login-page {
   min-height: 100vh;
-  background: #050505;
-  color: #f1f1f1;
+  background:
+    radial-gradient(circle at center, rgba(245, 245, 220, 0.035), transparent 32%),
+    #0b0b0b;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  padding: 2rem;
+  padding: 48px 24px;
+  color: #f5f5dc;
 }
 
-.login-container {
-  width: 100%;
-  max-width: 480px;
+.login-shell {
+  width: min(430px, 100%);
 }
 
-.brand {
+.login-brand {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 56px;
 }
 
-.brand h1 {
-  font-size: 3rem;
-  font-weight: 300;
-  letter-spacing: 6px;
+.login-brand h1 {
+  margin: 0;
+
+  font-family: var(--font-title);
+  font-size: clamp(44px, 8vw, 64px);
+  font-weight: 400;
+  letter-spacing: 12px;
   line-height: 1;
 }
 
-.brand span {
-  display: block;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+.login-brand p {
+  margin: 24px 0 0;
+
+  font-family: var(--font-title);
+  font-size: 22px;
+  letter-spacing: 14px;
 }
 
-.login-card {
-  background: #0a0a0a;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 2rem;
+.auth-card {
+  padding: 34px 32px 32px;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(245, 245, 220, 0.2);
 }
 
-.tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(245, 245, 220, 0.12);
 }
 
-.tab {
-  flex: 1;
+.auth-tabs button {
+  padding: 0 0 18px;
+
   background: transparent;
-  border: none;
-  color: #9a9a9a;
+  border: 0;
+
+  font-family: var(--font-title);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(245, 245, 220, 0.4);
+
   cursor: pointer;
 }
 
-.tab.active {
-  color: #f1f1f1;
+.auth-tabs button.active {
+  color: #f5f5dc;
+  border-bottom: 2px solid #f5f5dc;
 }
 
-.input-group {
+.auth-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.25rem;
 }
 
-.input-group label {
-  margin-bottom: .5rem;
-  color: #9a9a9a;
-}
-
-.input-group input {
-  background: #111111;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 1rem;
-  color: white;
-}
-
-.forgot-password {
-  text-align: right;
-  margin-bottom: 1.5rem;
-}
-
-.forgot-password a {
-  color: #c7b07b;
-  text-decoration: none;
-}
-
-.login-button {
+.auth-form input {
   width: 100%;
-  background: #c7b07b;
-  color: #050505;
-  border: none;
-  padding: 1rem;
-  border-radius: 12px;
+
+  padding: 16px 12px;
+  margin-bottom: 28px;
+
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(245, 245, 220, 0.35);
+
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: #f5f5dc;
+
+  outline: none;
+}
+
+.auth-form input::placeholder {
+  color: rgba(245, 245, 220, 0.55);
+}
+
+.auth-form input:focus {
+  border-bottom-color: #f5f5dc;
+}
+
+.forgot-link {
+  align-self: flex-end;
+
+  margin: 2px 0 42px;
+
+  font-family: var(--font-title);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(245, 245, 220, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.main-button,
+.social-button {
+  min-height: 52px;
+
+  background: transparent;
+  border: 1px solid rgba(245, 245, 220, 0.35);
+
+  font-family: var(--font-title);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #f5f5dc;
+
   cursor: pointer;
+}
+
+.main-button:hover,
+.social-button:hover {
+  background: rgba(245, 245, 220, 0.08);
 }
 
 .divider {
-  text-align: center;
-  margin: 1.5rem 0;
-  color: #7d7d7d;
-}
-
-.social-buttons {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 16px;
+
+  margin: 56px 0 38px;
+
+  color: rgba(245, 245, 220, 0.35);
+  font-family: var(--font-title);
+  font-size: 10px;
 }
 
-.social-button {
+.divider::before,
+.divider::after {
+  content: "";
   flex: 1;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #f1f1f1;
-  padding: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
+  height: 1px;
+  background: rgba(245, 245, 220, 0.12);
+}
+
+.social-button + .social-button {
+  margin-top: 16px;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 28px 22px;
+  }
+
+  .login-brand h1 {
+    letter-spacing: 8px;
+  }
+
+  .login-brand p {
+    letter-spacing: 9px;
+  }
 }

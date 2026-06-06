@@ -1,74 +1,60 @@
-<div class="login-page">
+<main class="login-page">
+  <section class="login-shell">
+    <header class="login-brand">
+      <h1>GRIMOIRE</h1>
+      <p>OF STARS</p>
+    </header>
 
-  <div class="login-container">
-
-    <div class="brand">
-      <h1>
-        GRIMOIRE
-        <span>OF STARS</span>
-      </h1>
-    </div>
-
-    <div class="login-card">
-
-      <div class="tabs">
-        <button class="tab active">
-          Entrar
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button
+          type="button"
+          [class.active]="mode === 'login'"
+          (click)="setMode('login')"
+        >
+          ENTRAR
         </button>
 
-        <button class="tab">
-          Cadastrar-se
+        <button
+          type="button"
+          [class.active]="mode === 'register'"
+          (click)="setMode('register')"
+        >
+          CADASTRAR-SE
         </button>
       </div>
 
-      <form class="login-form">
+      <form class="auth-form">
+        @if (mode === 'register') {
+          <input type="text" placeholder="Nome de usuário">
+        }
 
-        <div class="input-group">
-          <label>Email ou Usuário</label>
-          <input
-            type="text"
-            placeholder="Digite seu usuário"
-          />
-        </div>
+        <input type="text" placeholder="E-mail ou Usuário">
 
-        <div class="input-group">
-          <label>Senha</label>
-          <input
-            type="password"
-            placeholder="Digite sua senha"
-          />
-        </div>
+        <input type="password" placeholder="Senha">
 
-        <div class="forgot-password">
-          <a href="#">
-            Esqueceu a senha?
-          </a>
-        </div>
+        @if (mode === 'register') {
+          <input type="password" placeholder="Confirmar senha">
+        }
 
-        <button class="login-button">
-          INICIAR A AVENTURA
+        @if (mode === 'login') {
+          <a href="#" class="forgot-link">Esqueceu a senha?</a>
+        }
+
+        <button type="submit" class="main-button">
+          {{ mode === 'login' ? 'INICIAR AVENTURA' : 'CRIAR CONTA' }}
         </button>
 
         <div class="divider">
           <span>OU</span>
         </div>
 
-        <div class="social-buttons">
+        <button type="button" class="social-button">
+          ◉ {{ mode === 'login' ? 'ENTRAR' : 'CADASTRAR' }} COM GOOGLE
+        </button>
 
-          <button class="social-button">
-            □ Google
-          </button>
-
-          <button class="social-button">
-            □ Discord
-          </button>
-
-        </div>
-
+      
       </form>
-
     </div>
-
-  </div>
-
-</div>
+  </section>
+</main>
